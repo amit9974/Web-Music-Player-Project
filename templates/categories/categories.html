@@ -1,0 +1,22 @@
+{% extends "layout/base.html" %}
+{% block body %}
+<br><br><br><br><br><br>
+<div class="container marketing">
+    <h4 class="text-warning display-4">All Categories</h4>
+    <hr class='link-danger'>
+
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+        {% for new_release in new_release %}
+            <div class="col-lg-2">
+            <center>
+                <a href="{% url 'hindi_songs' new_release.id %}"><img class="bd-placeholder-img card-img-top" src="{{new_release.img.url}}" alt="" width="140" height="140"></a>
+                <h4 class="text-white">{{new_release.name | truncatechars:12 }}</h4>
+            </center>
+            </div>
+        
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

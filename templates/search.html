@@ -1,0 +1,45 @@
+{% extends "layout/base.html" %}
+{% block body %}
+<br>
+<br>
+
+<div class="container">
+    <h2 class="text-warning display-3">Search Result for '{{q}}':</h2>
+    <br>    
+    <br>
+    <div class="row">
+        <div class="col-md-6 mx-left">
+            {% for item in song %}
+            <div class="card mb-2">
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <a href="" class="nav-link">
+                           Song: {{item.title}}
+                        </a>
+                    </h4>
+                    <p class="card-text">
+                        <b>Movie:</b> {{item.movie}}
+                        <br>
+                        <b>Language:</b> {{item.tag}}
+                    </p>
+                    <a href="{% url 'song' item.id %}"><button class="btn btn-primary">
+                        Play
+                    </button>
+                    </a>
+                </div>
+            </div>
+            {% empty %}
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h4 class="card-title">
+                        No ticles found related to `{{q}}`
+                    </h4>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "layout/base.html" %}
+{% block body %}
+<br><br><br>
+
+
+<div class="container marketing">
+{% if song %}
+   {% for t in song %}
+   <h4 class="text-warning">New {{t.tag.name}} Songs</h4>
+   {% endfor %}
+   <hr class='link-danger'>
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+      {% for song in song %}
+      <div class="col-lg-2">
+         <a href="{% url 'song' song.id %}"><img class="bd-placeholder-img card-img-top" src="{{song.image.url}}" alt="Generic placeholder image" width="140" height="140"></a>
+         <h4>{{song.title | truncatechars:12 }}</h4>
+      </div>
+      {% endfor %}
+   </div>
+{% else %}
+<h4>Empty Songs List</h4>
+{% endif %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "layout/base.html" %}
+{% block body %}
+<br><br><br><br><br><br>
+<div class="container marketing">
+    <h4 class="text-warning display-4">Top Artists</h4>
+   <hr class='link-danger'>
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+        {% for top in top %}
+            <div class="col-lg-2">
+                <a href=""><img class="bd-placeholder-img card-img-top" src="{{top.img.url}}" alt="Generic placeholder image" width="140" height="140"></a>
+                <h4>{{top.name | truncatechars:12 }}</h4>
+                <p>{{top.fans}}</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
