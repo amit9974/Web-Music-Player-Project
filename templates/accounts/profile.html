@@ -1,0 +1,45 @@
+{% extends "layout/base.html" %}
+{% block body %}
+
+<div class="container text-warning">
+    <br><br>
+    <h3 class='display-4 text-warning'>Update Profile</h3>
+    <br><br>
+    <div class="container">
+        <form>
+            <div class="row">
+                <div class="input-field col s6">
+                    <label for="exampleInputEmail1" class="form-label">First Name</label>
+                    <input type="text" class="form-control" id="" aria-describedby="" value="{{request.user.first_name}}">
+                </div>
+                <br>
+                <div class="input-field col s4">
+                    <label for="exampleInputText" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" id="" aria-describedby="" value="{{request.user.last_name}}">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="input-field col s4">
+                    <label for="exampleInputEmail1" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="" aria-describedby="" value="{{request.user.username}}" readonly=True>
+                </div>
+                
+                <div class="input-field col s4">
+                    <label for="exampleInputText" class="form-label">Email Address</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{request.user.email}}">
+                </div>
+                <div class="input-field col s6">
+                    <label for="exampleInputText" class="form-label">Password</label>
+                    <input type="Password" class="form-control" id="Password" aria-describedby="" value="{{request.user.password}}">
+                </div>
+            </div>
+
+            <br><br>
+            <button type="submit" class="btn btn-success">Update Profile</button>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

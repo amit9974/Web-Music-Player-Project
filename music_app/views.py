@@ -24,6 +24,7 @@ def home(request):
         'top_playlist':top_playlist,
         'proadcast':proadcast,
         'song':song,
+  
     }
 
     return render(request, 'home.html', ctx)
@@ -132,3 +133,4 @@ def search_song(request):
     ctx['song'] = Song.objects.filter(title__icontains=query)
     ctx['q'] = query
     return render(request, 'search.html',ctx)
+
